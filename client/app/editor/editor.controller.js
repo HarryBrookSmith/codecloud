@@ -73,9 +73,6 @@ angular.module('codecloudFullstackApp')
       var absUrl = $location.absUrl();
       window.prompt("Copy to clipboard: Ctrl+C / CMD+C Enter", absUrl);
     };
-    
-
-
 
     $scope.loadLanguageTags = function(query) {
         // get language tags
@@ -104,7 +101,7 @@ angular.module('codecloudFullstackApp')
           $scope.languageTags = snippetResponse.languageTags; 
           $scope.projectTags = snippetResponse.projectTags; 
           $scope.editorContent = snippetResponse.snippet;
-          console.log(snippetResponse.languageTags)
+          console.log(snippetResponse)
         });
     };
   
@@ -162,6 +159,7 @@ angular.module('codecloudFullstackApp')
       }).success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
+        console.log($scope.projectTags);
         console.info("Successfully updated: Snippet ID: " + data._id);
       }).error(function(data, status, headers, config) {
         // called asynchronously if an error occurs

@@ -3,22 +3,21 @@
 var _ = require('lodash');
 var Snippet = require('./snippet.model');
 
-
-//query.find({ name: 'Los Pollos Hermanos' }).find(callback)
-
 // Get list of user's snippets
-exports.index = function(req, res) {
-  Snippet.find({ createdBy: req.params.userId }, function (err, snippets) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, snippets);
-  });
-};
-// exports.index = function(req, res) {
-//   Snippet.find(function (err, snippets) {
+// exports.indexUser = function(req, res) {
+//   Snippet.find({ createdBy: req.params.userId }, function (err, snippets) {
 //     if(err) { return handleError(res, err); }
 //     return res.json(200, snippets);
 //   });
 // };
+
+//Get all snippets
+exports.index = function(req, res) {
+  Snippet.find(function (err, snippets) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, snippets);
+  });
+};
 
 // Get a single snippet
 exports.show = function(req, res) {
