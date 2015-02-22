@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codecloudFullstackApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, AppState) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, AppState, $state) {
     
     // bind with service to share global app state
     $scope.appState = AppState;
@@ -17,7 +17,7 @@ angular.module('codecloudFullstackApp')
     
      $scope.setEditorMode = function() {
       // if editor page
-      if ( $location.path() == "/editor/new" ) {
+      if ($state.current.name == "editor.new" || $state.current.name == "editor.view"){
         // set to true
         $scope.appState.state = true;
       } else {

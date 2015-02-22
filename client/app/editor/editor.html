@@ -10,24 +10,11 @@
 			<tags-input class="info__field" ng-model="languageTags" placeholder="+ Language"></tags-input>
 			<tags-input class="info__field" ng-model="projectTags" placeholder="+ Project"></tags-input>
 		</form>
-		<div class="info__tags">
-			
-<!-- 			<div class="languages">
-				<tags-input ng-model="languageTags">
-			        <auto-complete source="loadTags($query)"></auto-complete>
-			    </tags-input>
-			</div>
-			<div class="projects">
-				<tags-input ng-model="projectTags">
-			        <auto-complete source="loadTags($query)"></auto-complete>
-			    </tags-input>
-			</div> -->
-		</div>
-		
 		<div class="button-group">
 			<button id="save" ng-click="saveSnippet()" class="info__field save btn">SAVE</button>
-			<button id="copy-cb" class="info__field copy-cb btn">COPY TO CLIPBOARD</button>
-			<button id="copy-cb" class="info__field copy-cb btn">COPY SHARE LINK</button>
+			<button id="delete" ng-show="showFullCtrls" ng-click="deleteSnippet()" class="info__field save btn">DELETE</button>
+			<button id="copy-cb" ng-click="copyToClipboard()" class="info__field copy-cb btn">COPY TO CLIPBOARD</button>
+			<button id="copy-cb" ng-show="showFullCtrls" ng-click="copyShareUrl()" class="info__field copy-cb btn">COPY SHARE LINK</button>
 		</div>
     </div>
 	</div>
